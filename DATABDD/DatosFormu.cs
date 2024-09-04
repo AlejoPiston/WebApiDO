@@ -1,15 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
 
-namespace DATABDD.DATADB
+namespace WebApiDO.DATABDD;
+
+public partial class DatosFormu
 {
-    public class DatosFormu
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
-        public string Datos { get; set; }
-        public DateTime fecha_ingreso { get; set; }
-        public DateTime fecha_actulizacion {  get; set; }
-    }
+    public int Id { get; set; }
+
+    public string Datos { get; set; } = null!;
+
+    public DateTime FechaIngreso { get; set; }
+
+    public DateTime FechaActulizacion { get; set; }
+
+    public virtual ICollection<Mascota> Mascota { get; set; } = new List<Mascota>();
+
+    public virtual ICollection<Persona> Personas { get; set; } = new List<Persona>();
 }

@@ -1,15 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
-namespace DATABDD.DATADB
+namespace WebApiDO.DATABDD;
+
+public partial class Boton
 {
-    public class Boton
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
-        public string Nombre { get; set; }
-        public DateTime fecha_ingreso { get; set; }
-        public DateTime fecha_actulizacion { get; set; }
-    }
+    public int Id { get; set; }
+
+    public string Nombre { get; set; } = null!;
+
+    public DateTime FechaIngreso { get; set; }
+
+    public DateTime FechaActualiza { get; set; }
 }

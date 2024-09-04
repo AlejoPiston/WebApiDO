@@ -1,11 +1,12 @@
 
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 using WebApiDO.DATABDD;
 var builder = WebApplication.CreateBuilder(args);
 
 // Configurar el contexto de la base de datos
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+  options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 

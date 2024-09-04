@@ -1,19 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
-namespace DATABDD.DATADB
+namespace WebApiDO.DATABDD;
+
+public partial class Mascota
 {
-    public class Mascota
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
-        public int idDato { get; set; }
-        public int idPerson { get; set; }
-        public string inputdatovalor { get; set; }
-        public DatosFormu Datos { get; set; }
-        public Persona Persona { get; set; }
-        public DateTime fechaingreso { get; set; }
-        public DateTime fechaactulizacion { get; set; }
-    }
+    public int Id { get; set; }
+
+    public int IdDatos { get; set; }
+
+    public int IdPersona { get; set; }
+
+    public string? Inputdatovalor { get; set; }
+
+    public DateTime FechaIngreso { get; set; }
+
+    public DateTime FechaActualiza { get; set; }
+
+    public virtual DatosFormu IdDatosNavigation { get; set; } = null!;
+
+    public virtual Persona IdPersonaNavigation { get; set; } = null!;
 }
